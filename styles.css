@@ -1,0 +1,84 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(270deg, #ff69b4, #ff1493, #ff69b4, #ff1493);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    position: relative; /* Añadido para posicionar los corazones */
+}
+
+h1 {
+    font-size: 3em;
+    color: white;
+    animation: fadeInOut 2s infinite; /* Cambia la animación aquí */
+}
+
+p {
+    font-size: 1.2em; /* Tamaño del texto */
+    color: white; /* Color del texto */
+    margin: 10px 0; /* Espaciado alrededor del párrafo */
+    animation: fadeInOut 2s infinite; /* Añadido para hacer el texto intermitente */
+}
+
+cite {
+    position: absolute; /* Posiciona el texto en la esquina */
+    bottom: 20px; /* Distancia desde el fondo */
+    left: 20px; /* Distancia desde la izquierda */
+    color: white; /* Color del texto */
+    font-size: 1.5em; /* Tamaño del texto */
+}
+
+/* Estilos para los corazones */
+.heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #ff69b4;
+    transform: rotate(45deg);
+    animation: fall linear forwards;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -15px;
+    left: 0;
+}
+
+.heart::after {
+    left: 15px;
+    top: 0;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(45deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(45deg);
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

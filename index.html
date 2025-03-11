@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eres Especial</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlazamos el archivo CSS -->
+</head>
+<body>
+    <div>
+        <h1>Eres la persona más especial del mundo<br /> Mary, mi Damisela</h1>
+        <p>Siempre estás en mis pensamientos y en mi corazón.</p>
+    </div>
+    <cite>Jonathan <3 </cite>
+
+    <script>
+        // Función para crear corazones
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw'; // Posición horizontal aleatoria
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // Duración aleatoria
+            document.body.appendChild(heart);
+
+            // Eliminar el corazón después de que caiga
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+
+        // Crear corazones cada 300 ms
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
